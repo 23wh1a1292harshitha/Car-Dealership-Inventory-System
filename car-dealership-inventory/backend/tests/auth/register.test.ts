@@ -1,10 +1,14 @@
 import "dotenv/config";
-import { describe, it, expect } from "vitest";
+import { describe, it, expect, afterAll } from "vitest";
 import request from "supertest";
 import app from "../../src/app";
 import { prisma } from "../../src/config/prisma";
 
 describe("POST /api/auth/register", () => {
+  afterAll(async () => {
+    await prisma.$disconnect();
+  });
+
   it("should register a new user successfully", async () => {
     const email = `harshitha-${Date.now()}@example.com`;
 

@@ -1,5 +1,5 @@
 import "dotenv/config";
-import { describe, it, expect, beforeAll } from "vitest";
+import { describe, it, expect, beforeAll, afterAll } from "vitest";
 import request from "supertest";
 import app from "../../src/app";
 import { prisma } from "../../src/config/prisma";
@@ -46,5 +46,9 @@ describe("POST /api/auth/login", () => {
 
     expect(response.status).toBe(401);
     expect(response.body.message).toBe("Invalid email or password");
+  });
+
+  afterAll(async () => {
+    await prisma.$disconnect();
   });
 });

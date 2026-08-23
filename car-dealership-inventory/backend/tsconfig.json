@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "types": ["node", "vitest/globals"],
     "target": "ES2022",
     "module": "CommonJS",
     "moduleResolution": "Node",
@@ -8,6 +9,8 @@
     "strict": true,
     "esModuleInterop": true,
     "skipLibCheck": true
+    
   },
   "include": ["src", "tests"]
+  
 }
