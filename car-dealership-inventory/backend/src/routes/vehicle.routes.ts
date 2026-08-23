@@ -18,6 +18,8 @@ const router = Router();
 // Any authenticated user can view vehicles
 router.get("/", authMiddleware, getVehicles);
 
+router.get("/search", authMiddleware, getVehicles);
+
 router.get("/:id", authMiddleware, getVehicle);
 
 // Only ADMIN can modify inventory

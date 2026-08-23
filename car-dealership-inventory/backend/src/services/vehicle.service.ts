@@ -51,15 +51,10 @@ export const getAllVehicles = async (
       },
     }),
 
-    ...(minPrice !== undefined && {
+    ...((minPrice !== undefined || maxPrice !== undefined) && {
       price: {
-        gte: minPrice,
-      },
-    }),
-
-    ...(maxPrice !== undefined && {
-      price: {
-        lte: maxPrice,
+        ...(minPrice !== undefined && { gte: minPrice }),
+        ...(maxPrice !== undefined && { lte: maxPrice }),
       },
     }),
   };
